@@ -1,0 +1,31 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.header{
+    border-bottom: 2px solid black;
+
+}
+.header h3{
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.header a{
+    margin-left: 650px;
+}
+.right{
+    display: inline-block;
+    margin-left: 400px;
+    margin-top: 10px;
+}
+
+.left{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    margin-top: 10px;
+}

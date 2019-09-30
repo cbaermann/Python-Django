@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Success Page</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'log_reg_app/css/style.css' %}"> 
+
+    </head>
+
+
+    <body>
+        <div class="header">
+            <h2>CodingDojo Wall</h2>
+            <h3>Welcome {{request.session.first_name}}</h3>
+            <a href="/logout">Log out!</a>
+        </div>
+        <form action="message/create" method="POST">
+            {% csrf_token %}
+            <h2>Post a message</h2>
+            <textarea name="message"></textarea><br>
+            <input type="submit" value="Post a message">
+        </form>
+        {% for message in my_message %}
+        <div class="message">
+            <h4>{{message.user.first_name}} {{message.user.last_name}} - {{message.created_at}}</h4>
+            <p>{{message.content}}</p>
+            {% if message.user.id == request.session.user %}
+                <a href="/message/{{message.id}}/destroy">delete</a>
+            {% endif %}
+
+            {% for comment in message.comments.all %}
+                <div class="comment">
+                    <h5>{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.created_at}}</h5>
+                    <p>{{comment.content}}</p>
+                </div>
+            {% endfor %}
+
+            <form action="comment/{{message.id}}/create" method="POST">
+                {% csrf_token %}
+                <textarea name="comment"></textarea><br>
+                <input type="submit" value="Post a comment">
+            </form>
+
+        </div>
+        {% endfor %}
+    </body>
+</html>

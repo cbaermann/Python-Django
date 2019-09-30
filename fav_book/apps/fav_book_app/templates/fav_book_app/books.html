@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Book Home</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'fav_book_app/css/books.css' %}"> 
+
+    </head>
+
+
+    <body>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }} banner"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="header">
+            <h3>Welcome, {{request.session.first_name}}!</h3>
+            <a href="/logout">Log Out</a>
+        </div>
+
+        <div class="container">
+
+            <div class="left">
+                <h2>Add a Favorite Book</h2>
+                <form action="/add_book/{{user.id}}" method="POST">
+                    {% csrf_token %}
+                    <h4>Title</h4>
+                    <input type="text" name="title">
+                    <br>
+                    <h4>Description</h4>
+                    <textarea name="description"></textarea>
+                    <br>
+                    <input type="submit" value="Add">
+                </form>  
+            </div>
+            <div class="right">
+                <h2>All books</h2>
+                {% for book in books %}
+                    <a href="/book/{{book.id}}">{{book.title}}</a>
+                    <p>(added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}})</p>
+                {% if book not in user.fav_book.all %}
+                    <a href="/{{user.id}}/{{book.id}}">Add to Favorites</a>
+                    <br>
+                {% else %}
+                    <p>this is one of your favorites</p>
+                    
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        
+    </body>
+</html>

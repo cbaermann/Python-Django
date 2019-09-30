@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>New Job</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'exam_app/css/new_job.css' %}"> 
+
+    </head>
+
+
+    <body>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }} banner"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="header">
+            <h2>Hello {{request.session.first_name}}! Create a job!</h2>
+            <a href="/logout">Logout</a>
+        </div>
+
+        <div class="form">
+            <form action="/{{user.id}}/create" method="POST">
+                {% csrf_token %}
+                <h3>Title:</h3>
+                <input type="text" name="title">
+                <br>
+                <h3>Description:</h3>
+                <input type="text" name="description">
+                <br>
+                <h3>Location:</h3>
+                <input type="text" name="location">
+                <br>
+                <input class="submit" type="submit" value="Submit">
+            </form>
+
+            <form class="cancel" action="/cancel" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Cancel">
+            </form>
+        </div>
+    </body>
+</html>

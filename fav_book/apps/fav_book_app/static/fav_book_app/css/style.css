@@ -1,0 +1,21 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    margin-left: 40px;
+}
+
+.registration{
+    display: inline-block;
+    width: 400px;
+    vertical-align: top;
+}
+
+.login{
+    display: inline-block;
+    width: 400px;
+    vertical-align: top;
+}
+
+h4{
+    display: inline-block;
+}

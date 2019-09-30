@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Shows</title>
+    </head>
+    <body>
+        <div class="header">
+            <h3>Welcome, {{request.session.first_name}}</h3>
+            <a href="/logout">Log Out</a> |
+            <a href="/shows">Upcoming Shows</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+        <h1>All Upcoming Events</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>When</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            {% for event in events %}
+            <tbody>
+                <tr>
+                    <td>{{event.title}}</td>
+                    <td>{{event.location}}</td>
+                    <td>{{event.date}}</td>
+                    <td><a href="/{{event.id}}/view">View</a></td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+        </form>
+        
+    </body>
+</html>

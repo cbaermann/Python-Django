@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+<body>
+    <div class="header">
+        <h3>Welcome, {{request.session.first_name}}</h3>
+        <a href="/logout">Log Out</a> |
+        <a href="/shows">Upcoming Shows</a>
+        <a href="/dashboard">Dashboard</a>
+    </div>
+
+    <form action="/{{user.id}}/create" method="POST">
+        {% csrf_token %}
+        <h2>Add an Upcoming Event</h2>
+        <h4>Title</h4>
+        <input type="text" name="title">
+        <h4>Genre</h4>
+        <input type="text" name="genre">
+        <h4>When</h4>
+        <input type="date" name="date">
+        <h4>Location</h4>
+        <input type="text" name="location">
+        <input type="submit" value="Create Event">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    vertical-align: top;
+
+}
+
+.registration{
+    display: inline-block;
+    width: 400px;
+}
+
+.login{
+    display: inline-block;
+    width: 400px;
+}
+
+h4{
+    display: inline-block;
+    margin-top: 10px;
+}
+
+input{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.button{
+    border: 1px solid black;
+    box-shadow: 2px 2px;
+    height: 20px;
+    width: 50px;
+}
+
+.header{
+    display: inline-block;
+    width: 970px;
+    height: 100px;
+    background-color: #599fdb;
+}
+
+.header h2{
+    display: inline-block;
+    line-height: 100px;
+}
+
+.header h3{
+    display: inline-block;
+    margin-left: 610px;
+    line-height: 100px;
+}
+
+.header a{
+    line-height: 100px;
+    color: white;
+}
+
+.wall{
+    border: 2px solid black;
+    height: auto;
+    width: 970px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Dashboard</title>
+    </head>
+
+
+    <body>
+        <div class="header">
+            <h3>Welcome, {{request.session.first_name}}</h3>
+            <a href="/logout">Log Out</a> |
+            <a href="/shows">Upcoming Shows</a>
+            <a href="/dashboard">Dashboard</a>
+
+        </div>
+        <div class="container">
+
+            <div class="left">
+                <h2>Stats</h2>
+                <p># of Events Hosted: {{created}}</p>
+                <p># of Events Joined: {{times}}</p>
+                <p>Registration Date: {{user.created_at}}</p>
+            </div>
+            
+            <div class="bottom">
+                <h1>Your Upcoming Events</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>When</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    {% for event in your_event %}
+                    <tbody>
+                        <tr>
+                            <td>{{event.title}}</td>
+                            <td>{{event.location}}</td>
+                            <td>{{event.date}}</td>
+                            <td>{{placeholder}}</td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                    
+                </table>
+            </div>
+            <form action="/new_show" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Create a TV Party">
+            </form>
+            
+        </div>
+            
+        </body>
+        </html>

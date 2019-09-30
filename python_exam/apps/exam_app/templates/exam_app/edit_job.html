@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Edit Job</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'exam_app/css/edit_job.css' %}"> 
+
+    </head>
+
+
+    <body>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }} banner"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div class="header">
+            <h2>Hello {{request.session.first_name}}! Let's edit your job!</h2>
+            <a href="/logout">Logout</a>
+        </div>
+        <div class="editForm">
+            <form action="/{{job.id}}/update" method="POST">
+                {% csrf_token %}
+                <h4>Title:</h4>
+                <input type="text" name="title" placeholder="{{job.title}}">
+                <br>
+                <h4>Description:</h4>
+                <input type="text" name="description" placeholder="{{job.description}}">
+                <br>
+                <h4>Location:</h4>
+                <input type="text" name="location" placeholder="{{job.location}}">
+                <br>
+                <input class="submit" type="submit" value="Submit">
+            </form>
+
+            <form class="cancel" action="/cancel" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Cancel">
+            </form>
+        </div>
+        
+    </body>
+</html>

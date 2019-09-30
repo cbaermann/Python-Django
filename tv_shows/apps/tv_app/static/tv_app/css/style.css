@@ -1,0 +1,29 @@
+*{
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.container{
+    display: inline-block;
+    
+}
+h1{
+    margin-left: 300px;
+}
+
+.index_table{
+    border: 1;
+    margin-top: 10px;
+    margin-left: 300px;
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+

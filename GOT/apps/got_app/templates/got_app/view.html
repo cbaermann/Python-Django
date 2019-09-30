@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>{{event.title}}</h1>
+        <p>Genre: {{event.genre}}</p>
+        <p>When: {{event.date}}</p>
+        <p>Location: {{event.location}}</p>
+
+        <h1>Attendees:</h1>
+        {% for people in attendees %}
+        <p>{{people.first_name}}</p>
+        {% endfor %}
+        {% if request.session.user == event.creator.id %}
+        <form action="/{{event.id}}/delete" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Cancel Event">
+        </form>
+        {% else %}
+        <form action="/{{event.id}}/join" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Join Event">
+        </form>
+        {% endif %}
+        <a href="/shows">Go Back</a>
+      
+
+       
+
+    </body>
+</html>

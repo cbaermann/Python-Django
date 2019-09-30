@@ -1,0 +1,20 @@
+.header h2{
+    display: inline-block;
+
+}
+
+
+
+.dashboard{
+    display: inline-block;
+    margin-left: 400px;
+}
+
+.logout{
+    display: inline-block;
+}
+
+.jobBody{
+    border: 2px solid black;
+    width: 400px;
+}

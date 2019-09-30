@@ -1,0 +1,34 @@
+.header h2{
+    display: inline-block;
+}
+
+.header a{
+    margin-left: 600px;
+}
+
+.editForm{
+    border: 1px solid black;
+    width: 400px;
+}
+
+.editForm h4{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.editForm input{
+    margin-left: 10px;
+    border: 2px solid black;
+}
+
+.editForm .submit{
+    box-shadow: 2px 2px;
+    border: 1px solid black;
+}
+
+.cancel input{
+    margin-top: 10px;
+    border: 1px solid black;
+    display: inline-block;
+    box-shadow: 2px 2px;
+}

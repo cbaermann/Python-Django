@@ -1,0 +1,38 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.header{
+    height: 60px;;
+}
+
+.header h3{
+    line-height: 60px;
+    margin-left: 30px;
+}
+
+.header a{
+    line-height: 60px;
+    margin-left: 800px;
+}
+.container{
+    border-top: 2px solid black;
+}
+
+.header h3{
+    display: inline-block;
+}
+
+.left{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.left h4{
+    display: inline-block;
+}
+
+.right{
+    display: inline-block;
+    margin-left: 300px;
+}
